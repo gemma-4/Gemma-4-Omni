@@ -62,3 +62,23 @@ Gemma-4 Omni-Desktop automatically adjusts to the amount of memory. The Effectiv
 
 **6. Is it safe to give the program access to the screen?**
 Yes, because access happens inside your computer. The code is open for audit, and no screenshots or audio recordings ever leave your device.
+
+# What is new with Gemma 4?
+
+Similar to Gemma-3n, Gemma 4 supports image, text, and audio inputs, and generates text responses. The text decoder is based on the Gemma model with support for long context windows. The image encoder is similar to the one from Gemma 3 but with two crucial improvements: variable aspect ratios, and configurable number of image token inputs to find your sweet spot between speed, memory, and quality. All models support images (or video) and text inputs, while the small variants (E2B and E4B) support audio as well.
+
+## Overview of Capabilities and Architecture
+
+Gemma 4 leverages several architecture components used in previous Gemma versions and other open models, and leaves out complex or inconclusive features such as Altup. The combination is a mix designed to be highly compatible across libraries and devices, that can efficiently support long context and agentic use cases, whilst being ideal for quantization.
+
+As shown in the benchmarks above, this feature mix (combined with the training data and recipe) enables the 31B dense model to achieve an estimated LMArena score (text only) of 1452, while the 26B MoE reaches 1441 with just 4B active parameters 🤯. As we'll see, multimodal operation is comparatively as good as text generation, at least in informal and subjective tests.
+
+These are the main architecture characteristics in Gemma 4:
+
+* Alternating **local sliding-window** and **global full-context** attention layers. Smaller dense models use sliding windows of 512 tokens while larger models use 1024 tokens.
+* **Dual RoPE** configurations: standard RoPE for sliding layers, proportional RoPE for global layers, to enable longer context.
+* **Per-Layer Embeddings (PLE)**: a second embedding table that feeds a small residual signal into every decoder layer.
+* **Shared KV Cache**: the last N layers of the model reuse key-value states from earlier layers, eliminating redundant KV projections.
+* **Vision encoder**: uses learned 2D positions and multidimensional RoPE. Preserves the original aspect ratios and can encode images to a few different token budgets (70, 140, 280, 560, 1120).
+* **Audio encoder**: USM-style conformer with the same base architecture as the one in Gemma-3n.
+
