@@ -18,7 +18,7 @@
 
 ## 🛠 Why should this be on your PC?
 
-Gemma 4 is a breakthrough in "agentic" computing. Our solution allows you to use its potential to 100% without being a programmer.
+**Gemma 4** is a breakthrough in "agentic" computing. Our solution allows you to use its potential to 100% without being a programmer.
 
 * **⚡️ Extreme Optimization (30xx Ready):** Run a 26B MoE level model on a regular RTX 3060. Thanks to our custom 4-bit kernels and dynamic caching technology, you get an instant response where other models lag.
 * **🦀 OpenClaw Bridge (Your free Claude):** Native integration with the OpenClaw framework. The bot intercepts tasks for autonomous agents and executes them locally. Forget about buying Anthropic or OpenAI tokens — your Gemma will do everything itself.
